@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AURELIAN | The Monolith Apartment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#cac5c4",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed-variant": "#494645",
+                    "on-tertiary-fixed-variant": "#4c463b",
+                    "tertiary-container": "#2f2a20",
+                    "secondary-fixed": "#ffdea5",
+                    "inverse-surface": "#2f3130",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#785a1a",
+                    "on-primary-fixed": "#1d1b1a",
+                    "on-background": "#1a1c1b",
+                    "surface-variant": "#e3e2e0",
+                    "secondary": "#775a19",
+                    "background": "#faf9f7",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#ebe1d2",
+                    "surface-container-highest": "#e3e2e0",
+                    "surface": "#faf9f7",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#e9c176",
+                    "surface-tint": "#615e5c",
+                    "tertiary-fixed-dim": "#cec5b7",
+                    "on-primary-container": "#95918f",
+                    "surface-bright": "#faf9f7",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#261900",
+                    "primary-fixed-dim": "#cac5c4",
+                    "primary-fixed": "#e7e1df",
+                    "on-tertiary-container": "#989183",
+                    "secondary-container": "#fed488",
+                    "on-error-container": "#93000a",
+                    "surface-container": "#efeeec",
+                    "primary-container": "#2c2a29",
+                    "surface-container-high": "#e9e8e6",
+                    "primary": "#171615",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#1f1b12",
+                    "outline": "#7e7570",
+                    "on-surface-variant": "#4d4541",
+                    "outline-variant": "#cfc4be",
+                    "on-secondary-fixed-variant": "#5d4201",
+                    "inverse-on-surface": "#f1f1ef",
+                    "tertiary": "#1a160d",
+                    "on-surface": "#1a1c1b",
+                    "surface-dim": "#dadad8",
+                    "surface-container-low": "#f4f3f1",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "80px",
+                    "container-max": "1440px",
+                    "margin-mobile": "24px",
+                    "section-gap": "160px",
+                    "gutter": "32px"
+            },
+            "fontFamily": {
+                    "body-md": ["Montserrat"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "label-caps": ["Montserrat"],
+                    "headline-sm": ["Playfair Display"],
+                    "body-lg": ["Montserrat"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "32px", "letterSpacing": "0.01em", "fontWeight": "300"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-reveal {
+            animation: heroReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes heroReveal {
+            from { transform: scale(1.1); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .text-reveal {
+            overflow: hidden;
+        }
+        .text-reveal-inner {
+            animation: textReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+        }
+        @keyframes textReveal {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            display: none;
+        }
+        .switch {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .wrapper {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.2s;
+        }
+        .row {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        .row-bottom {
+            align-items: flex-end;
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            border: 2px solid black;
+            border-radius: 50%;
+            transition: all 0.2s;
+        }
+        .row-horizontal {
+            position: absolute;
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s;
+        }
+        .row-vertical {
+            position: absolute;
+            width: fit-content;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.2s;
+        }
+
+        .switch:hover .wrapper .row-horizontal {
+            width: 100px;
+        }
+        .switch:hover .wrapper .row-vertical {
+            height: 100px;
+        }
+
+        .switch:hover .wrapper .row-vertical .middle-dot {
+            border-radius: 5px;
+            height: 35px;
+        }
+        .switch:hover .wrapper .row-horizontal .middle-dot-horizontal {
+            border-radius: 5px;
+            width: 35px;
+        }
+
+        .switch input:checked + .wrapper {
+            transform: rotate(45deg) scale(1.2);
+        }
+        .switch input:checked + .wrapper .row-vertical {
+            height: 100px;
+        }
+        .switch input:checked + .wrapper .row-horizontal {
+            width: 100px;
+        }
+
+        .switch input:checked + .wrapper .row-vertical .middle-dot {
+            border-radius: 5px;
+            height: 35px;
+        }
+        .switch input:checked + .wrapper .row-horizontal .middle-dot-horizontal {
+            border-radius: 5px;
+            width: 35px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation -->
+<nav class="docked full-width top-0 sticky z-50 bg-surface/80 backdrop-blur-md border-b border-primary/10 transition-all duration-500 ease-in-out">
+<div class="flex justify-between items-center w-full px-margin-desktop py-6 max-w-container-max mx-auto">
+<div class="font-display-lg text-headline-md tracking-tighter text-primary dark:text-primary-fixed">
+                AURELIAN
+            </div>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-label-caps text-label-caps tracking-[0.15em] text-primary font-bold border-b border-primary pb-1" href="../project_detail_the_monolith_apartment/portfolio.html">Portfolio</a>
+<a class="font-label-caps text-label-caps tracking-[0.15em] text-on-surface-variant/80 hover:text-primary transition-colors duration-300" href="../services/services.html">Services</a>
+<a class="font-label-caps text-label-caps tracking-[0.15em] text-on-surface-variant/80 hover:text-primary transition-colors duration-300" href="../about_us/about.html">Philosophy</a>
+<a class="font-label-caps text-label-caps tracking-[0.15em] text-on-surface-variant/80 hover:text-primary transition-colors duration-300" href="../quotation_page/quotation.html">Inquiry</a>
+</div>
+<div class="flex items-center gap-4">
+<label class="switch">
+  <input type="checkbox" />
+  <span class="wrapper">
+    <span class="row">
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </span>
+    <span class="row row-bottom">
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </span>
+    <span class="row-vertical">
+      <span class="dot"></span>
+      <span class="dot middle-dot"></span>
+      <span class="dot"></span>
+    </span>
+    <span class="row-horizontal">
+      <span class="dot"></span>
+      <span class="dot middle-dot-horizontal"></span>
+      <span class="dot"></span>
+    </span>
+  </span>
+</label>
+</div>
+</div>
+</nav>
+<main>
+<!-- Cinematic Hero Section -->
+<section class="relative h-[921px] w-full overflow-hidden">
+<div class="absolute inset-0 bg-primary/20 z-10"></div>
+<img alt="Cinematic Project View" class="w-full h-full object-cover hero-reveal" data-alt="A grand, cinematic view of 'The Monolith Apartment' interior featuring an expansive living area with double-height ceilings and massive floor-to-ceiling windows. The architectural space is defined by sharp linear forms, a monolithic concrete wall, and dark walnut floors. The lighting is soft, ambient dusk light filtering through sheer curtains, creating a moody, minimalist luxury aesthetic dominated by charcoal, bone, and warm brass accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB39_W2IyEXmwUX7BEf8gTL1mzeQt9XzufeUJ9zrDEZuaKX9ANoQx9iOfTgy7iyxTW0u07WjyZL06bXKG3ChmmEm5xOSjUGMRhm02ToWbaAgOuL3cn0rzrBBGmtGAVtEaCXysegrtSt5JJQXO10BXA0kAHitOU0co4qrEW5o6qyMvDRflDCe0Ck_eQk73DHj_8uyh-MgOoOhSHGantb4301pHRWnMjsoIL3iDA_5uWzwnkksocmpFoR4ri4En6QbN1ay7LvKJX1WI_7"/>
+<div class="absolute bottom-20 left-0 w-full px-margin-desktop z-20 max-w-container-max mx-auto">
+<div class="text-reveal">
+<h1 class="text-reveal-inner font-display-lg text-display-lg text-white mb-4 drop-shadow-sm">The Monolith Apartment</h1>
+</div>
+<div class="text-reveal">
+<p class="text-reveal-inner font-label-caps text-label-caps text-white/80 tracking-[0.2em]">RESIDENTIAL • LONDON • 2024</p>
+</div>
+</div>
+</section>
+<!-- Narrative Section -->
+<section class="px-margin-desktop py-section-gap max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<div class="lg:col-span-4">
+<h2 class="font-label-caps text-label-caps text-secondary mb-6">VISION &amp; IDENTITY</h2>
+<div class="h-px w-12 bg-secondary/30 mb-8"></div>
+<div class="flex flex-col gap-4">
+<div class="flex justify-between items-baseline border-b border-primary/10 pb-4">
+<span class="font-label-caps text-[10px] text-on-surface-variant">LOCATION</span>
+<span class="font-body-md text-on-surface">MAYFAIR, LONDON</span>
+</div>
+<div class="flex justify-between items-baseline border-b border-primary/10 pb-4">
+<span class="font-label-caps text-[10px] text-on-surface-variant">YEAR</span>
+<span class="font-body-md text-on-surface">2024</span>
+</div>
+<div class="flex justify-between items-baseline border-b border-primary/10 pb-4">
+<span class="font-label-caps text-[10px] text-on-surface-variant">AREA</span>
+<span class="font-body-md text-on-surface">3,200 SQ FT</span>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 lg:col-start-6">
+<p class="font-headline-md text-headline-md leading-relaxed text-primary mb-10 italic">
+                    "A study in reduction, where the presence of shadow is as vital as the movement of light across raw stone."
+                </p>
+<div class="font-body-lg text-body-lg text-on-surface-variant space-y-6">
+<p>
+                        The Monolith Apartment was conceived as an urban sanctuary that rejects the noise of the city in favor of architectural silence. Our approach focused on a limited palette of high-integrity materials: bush-hammered travertine, smoked oak, and hand-applied lime plaster.
+                    </p>
+<p>
+                        By removing unnecessary partitions, we allowed the natural rhythm of the building's structure to dictate the flow of the home. The central 'Monolith'—a sculptural kitchen island carved from a single block of Pietra Gray marble—serves as the anchor for the entire residence, bridging the transition between social and private zones.
+                    </p>
+</div>
+<div class="mt-12 flex gap-4">
+<span class="px-4 py-2 border border-outline-variant font-label-caps text-[10px] tracking-widest text-on-surface-variant">MINIMALISM</span>
+<span class="px-4 py-2 border border-outline-variant font-label-caps text-[10px] tracking-widest text-on-surface-variant">MATERIALITY</span>
+<span class="px-4 py-2 border border-outline-variant font-label-caps text-[10px] tracking-widest text-on-surface-variant">BESPOKE</span>
+</div>
+</div>
+</section>
+<!-- Detail Grid (Asymmetric Bento) -->
+<section class="px-margin-desktop pb-section-gap max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter h-[1200px] md:h-[800px]">
+<!-- Large Vertical -->
+<div class="md:row-span-2 group overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A close-up vertical shot focusing on the texture of a hand-applied lime plaster wall and a custom-made dark oak door. The lighting is directional, creating high-contrast shadows that emphasize the organic grain of the wood and the subtle tactile variations in the plaster. Part of the minimal luxury interior design aesthetic of Aurelian Interiors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADw1oqc0RZuzjOrl-e0EKopu0GRVPL-TEsmGEkpY-0Rg6_dsjBV2eIdGTjwikMgxPaaQDFBqW7NuqHWfNVwMTu0C6CQSMsbzci3I3lopN8-PSpB_RGAXcRCWkcHf_LvZzyefz2iA5Bchc8AcrYNx7CUuOPGdZ2bCRY9z7-_9ZQH0sagtQXe24rOdSA4Nvm1lKfSwY2KQ-VTumrfJRbPXv9Jtf9hggsDh__IB7ry_kZpeyRXqCEaUMdv-_0kqQW6GE-i3vWAWVtYAa4"/>
+<div class="absolute inset-0 border border-primary/0 group-hover:border-secondary/30 transition-all duration-500"></div>
+</div>
+<!-- Top Right Square -->
+<div class="group overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A detailed shot of bespoke kitchen joinery featuring handle-less cabinets in a matte charcoal finish. A brass tap provides a striking warm accent against the dark surfaces. The image captures the precision of the shadow gaps and the architectural drafting style lines, reflecting the quiet luxury and technical expertise of the project." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAuRxjneM10bxCi2yxOJ1s-qO3L8VR06f5H13yEwOvxgJA-Ge0zBM9KzJZPcSagPpKyi88Sgue1NwYz5b884ZNqYp1LwbYy9uOOaObvQueoMdKqJcNNDXDGtDSkEhEbZGgixR-x7epjx1qJRqtIQZPk4KDotOOITQuOLdSvJWnOkA7E0-QW1doDmmQO_lcTPtj8G_tqgloDwLr1ie4TWHGBIDY7fDZs8smSP1DmJ9LybP3PutvyncZKCTi7nmU_WR2VU-s_Zr4qfmy"/>
+<div class="absolute inset-0 border border-primary/0 group-hover:border-secondary/30 transition-all duration-500"></div>
+</div>
+<!-- Bottom Middle Horizontal -->
+<div class="group overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Detail shot of a minimalist marble bathroom with a floating stone vanity. The lighting is soft and diffused, highlighting the elegant grey veining of the stone. The design follows a strict architectural grid, with precise 1px grout lines and a focus on essential form, consistent with the Monolith Apartment's overarching aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1JxvzzBOSAFoa7INW5jXLdF4h0mJqo_3kwH0DWLBMh1CakYfR9vW5pI6Zdtk7hPcDLl0wQldYudedVMjYQVkwTmWLYZcmJNqbemcAR6SuJ5h4gp8rkFQKC8Phu5xUFVTcBm8n3BQsVuDCeoB7q9hg9ZQMEmYr5VwZGKICpUIuzhi_Hz3si-cqzqpdsOh0x1g_Jt6ORZ8JrR5mwCVPI1pdqFdODQUr7PGDDpPjQVb385UpnN9QItHbvI0QbvAAU-xgyeVugnNIF0a-"/>
+<div class="absolute inset-0 border border-primary/0 group-hover:border-secondary/30 transition-all duration-500"></div>
+</div>
+<!-- Wide Bottom -->
+<div class="md:col-span-2 group overflow-hidden relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A wide horizontal detail of the master suite, featuring a low-profile platform bed upholstered in raw linen. The background shows a panoramic window with a view of London at night. The room is styled with a single piece of modernist sculpture and a soft wool rug in bone white, emphasizing the calm, professional confidence of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv-10vk5lUBPg7mhBvMoFL2359Gny8q0gMl89r4Lss4iSF_P_erdxfd5M7zkUsgPVd_3G1bJYvWCNl8-mhR-l11Du5fi42e_Kk8Og0MhAK010MG8g02HoHv7CayvZE9txkQnJEdarTU5wLncJwoBKCphyfm92uhxp8E0tT51HpvZ34LTUy6UTno9b08CRRwLPsLuu7ZsCgqkQZEosh8t4XaZQLd_ZhCPPoey-c4YvldnFnpU8m-ML1Ffihd02mZf0oYisWyyX5-U8a"/>
+<div class="absolute inset-0 border border-primary/0 group-hover:border-secondary/30 transition-all duration-500"></div>
+</div>
+</div>
+</section>
+<!-- Specifications / Materiality Section -->
+<section class="bg-surface-container-low py-section-gap">
+<div class="px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-start mb-16">
+<h3 class="font-headline-md text-headline-md text-primary mb-8 md:mb-0">Specifications &amp; Materiality</h3>
+<div class="max-w-md">
+<p class="font-body-md text-on-surface-variant">Every finish was selected for its ability to age gracefully, developing a patina that tells the story of the home over decades rather than years.</p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="space-y-4">
+<span class="font-label-caps text-label-caps text-secondary">FLOORING</span>
+<p class="font-body-md text-on-surface">Smoked European Oak, Wide Plank, Hardwax Oil Finish</p>
+</div>
+<div class="space-y-4">
+<span class="font-label-caps text-label-caps text-secondary">WALLS</span>
+<p class="font-body-md text-on-surface">Natural Lime Plaster, Pitted Texture, custom 'Bone' Pigment</p>
+</div>
+<div class="space-y-4">
+<span class="font-label-caps text-label-caps text-secondary">STONES</span>
+<p class="font-body-md text-on-surface">Pietra Gray Marble, Bush-hammered Travertine, Honed Quartzite</p>
+</div>
+<div class="space-y-4">
+<span class="font-label-caps text-label-caps text-secondary">METALS</span>
+<p class="font-body-md text-on-surface">Aged Brass, Patinated Gunmetal, Brushed Bronze</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Next Project Navigation -->
+<section class="relative h-[614px] group cursor-pointer overflow-hidden">
+<img alt="Next Project Preview" class="w-full h-full object-cover transition-transform duration-[2000ms] group-hover:scale-110" data-alt="A preview of the next project, 'The Brutalist Villa', featuring a dramatic exterior of raw board-marked concrete and large glass panes reflecting a lush green landscape. The scene is captured at the golden hour, with warm sunlight hitting the cold concrete surfaces, embodying the timeless elegance and curated authority of Aurelian Interiors' portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyGnR1vufWNfxv5q2itmigP6yXmCoRNnSS-nq7e6vfkJ-yWCnO3VNnRIisBXyW8VepMdTt8vNnXRL9amsBHJVDGE7gb-1P-at8amHNOha6zZUM732VKcAkt_-Mbhzv-3SvgVf8xMt-Y7_WHn5uyY8JSK5K-mD8a-IGB1n89B2QJVFfIZvN4A8CK0ra_RhSxKnfR6ZURZD_8y3f56Z2b2jUn-H2yurDfZSc8U8p5UTXl2auzxQ1tUuG8S-sUI2TAJ9IJZomkXwB13sB"/>
+<div class="absolute inset-0 bg-primary/40 group-hover:bg-primary/20 transition-all duration-500 flex flex-col items-center justify-center text-center">
+<span class="font-label-caps text-label-caps text-white/80 tracking-[0.3em] mb-4">NEXT PROJECT</span>
+<h4 class="font-display-lg text-display-lg text-white mb-8 group-hover:italic transition-all duration-500">The Brutalist Villa</h4>
+<div class="w-16 h-px bg-white group-hover:w-32 transition-all duration-500"></div>
+<div class="mt-8 text-white flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+<span class="font-label-caps text-label-caps">VIEW PROJECT</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</div>
+</div>
+<a class="absolute inset-0 z-30" href="#"></a>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-none bg-surface-container-low border-t border-primary/10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<div class="flex flex-col gap-8">
+<div class="font-display-lg text-headline-sm text-primary dark:text-primary-fixed">AURELIAN</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+                    Curating architectural silence and intentional luxury for the discerning few.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-label-caps text-label-caps text-primary mb-4">CONNECT</h5>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Instagram</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Pinterest</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">LinkedIn</a>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-label-caps text-label-caps text-primary mb-4">LEGAL</h5>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#">Terms</a>
+                    <div class="mt-8 font-body-md text-body-md text-on-surface-variant/50">
+                    © 2024 AURELIAN INTERIORS. ALL RIGHTS RESERVED.
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant opacity-60"><a href="https://www.veunecour.com" target="_blank" rel="noopener noreferrer">Created with ❤️ by Veune Cour</a></p>
+</div>
+</div>
+</footer>
+<script>
+        // Subtle scroll effects
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-surface', 'shadow-sm');
+                nav.classList.remove('bg-surface/80');
+            } else {
+                nav.classList.remove('bg-surface', 'shadow-sm');
+                nav.classList.add('bg-surface/80');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-1000', 'ease-out', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body></html>
